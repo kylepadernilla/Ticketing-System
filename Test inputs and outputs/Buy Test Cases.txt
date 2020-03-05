@@ -1,0 +1,490 @@
+BUY TEST CASES
+
+
+buy_test_cases.cuaf
+
+   admin       AA 999999.00
+   buyer1      BS 000500.00
+   buyer2      BS 000500.00
+   buyer3      BS 000000.00
+   seller1     SS 000500.00
+   seller2     SS 000500.00
+   seller3     SS 000000.00
+   END
+
+
+Test cases:
+
+1. buy1
+
+- buy1 input file buy1.inp
+login
+buyer1
+buy
+travis_scott
+1
+seller1
+yes
+logout
+
+login
+admin
+buy
+travis_scott
+1
+seller1
+yes
+logout
+
+- buy1 expected transaction file output buy1.etf
+
+03 travis_scott        seller1       200 25
+
+- buy1 expected terminal output buy1.bto
+
+Welcome to the DKM Ticket Selling System!
+Please enter the login command to login:
+Enter username:
+login successful!
+buyer privileges initiated.
+choose a transaction to perform (logout, buy):
+enter event title:
+enter amount of tickets you are buying:
+enter seller username:
+
+cost per ticket:  25
+                   1
+--------------------
+total:            25
+
+is your total cost $ 25 ? (yes or no)
+
+transaction accepted.
+choose a transaction to perform (logout, create, delete, sell, buy, refund, addcredit):
+logged out.
+
+
+Welcome to the DKM Ticket Selling System!
+Please enter the login command to login:
+Enter username:
+login successful!
+admin privileges initiated.
+choose a transaction to perform (logout, create, delete, sell, buy, refund, addcredit):
+enter event title:
+enter amount of tickets you are buying:
+enter seller username:
+
+cost per ticket:  25
+                   1
+--------------------
+total:            25
+
+is your total cost $ 25 ? (yes or no)
+
+transaction accepted.
+choose a transaction to perform (logout, create, delete, sell, buy, refund, addcredit):
+logged out.
+
+- buy2 available tickets file buy1.eatf
+
+travis_scott    seller1       199 25
+
+----------------------------------------------------
+
+2. buy2
+
+- buy2 input file buy2.inp
+login
+seller1
+buy
+logout
+
+-buy2 expected transaction file output create1.etf
+
+02      seller1     AA    0400.00
+
+-buy2 expected terminal output buy1.bto
+
+Welcome to the DKM Ticket Selling System!
+Please enter the login command to login:
+Enter username:
+login successful!
+buyer privileges initiated.
+choose a transaction to perform (logout, sell):
+transaction not allowed. User does not have buy/admin privileges.
+choose a transaction to perform (logout, sell):
+logged out
+
+- buy1 available tickets file buy1.eatf
+travis_scott    seller1       200 25
+
+3. buy3
+
+- buy3 input file buy2.inp
+
+login
+buyer
+buy
+Anders
+3
+seller2
+yes
+logout
+
+- buy3 expected transaction file output create1.etf
+
+02      buyer1     AA    0200.00
+
+-buy3 expected terminal output buy1.bto
+
+Welcome to the DKM Ticket Selling System!
+Please enter the login command to login:
+Enter username:
+login successful!
+buyer privileges initiated.
+choose a transaction to perform (logout, buy):
+enter event title:
+enter amount of tickets you are buying:
+enter seller username:
+
+cost per ticket:  30
+                   3
+--------------------
+total:            90
+
+is your total cost $ 90 ? (yes or no)
+
+transaction accepted.
+choose a transaction to perform (logout, buy):
+logged out.
+
+- buy3 available tickets file buy3.eatf
+Anders                seller2       500 20
+END
+
+----------------------------------------------------------------------
+
+4. buy4
+
+- buy4 input file buy2.inp
+login
+buyer1
+buy
+Anders
+3
+seller2
+logout
+
+- buy expected transaction file output buy .etf
+
+00                    000000.00
+04 Anders              seller2       500 20
+
+- buy  expected terminal output buy .bto
+
+Welcome to the DKM Ticket Selling System!
+Please enter the login command to login:
+Enter username:
+login successful!
+buyer privileges initiated.
+choose a transaction to perform (logout, buy):
+enter event title:
+event title doesn't exist try again.
+choose a transaction to perform (logout, buy):
+logged out.
+
+- buy  available tickets file buy .eatf
+
+Anders             seller2       500 20
+END
+
+----------------------------------------------------------------------
+
+5. buy5
+
+- buy5  input file buy5 .inp
+login
+buyer
+buy
+travis_scott
+1
+seller2
+logout
+
+
+- buy5 expected daily transaction file output buy5 .etf
+
+00                    000000.00
+04 travis scott        seller2       500 20
+
+- buy5  expected terminal output buy5 .bto
+
+Welcome to the DKM Ticket Selling System!
+Please enter the login command to login:
+Enter username:
+login successful!
+buyer-standard privileges initiated.
+choose a transaction to perform (logout, buy):
+enter event title:
+enter amount of tickets you are buying:
+enter seller username:
+transaction accepted!
+choose a transaction to perform (logout, buy):
+logged out.
+
+
+- buy5  available tickets file buy5 .eatf
+
+travis scott       seller2       500 20
+END
+
+----------------------------------------------------------------------
+
+6. buy6
+- buy6 input file buy6 .inp
+
+login
+buyer
+buy
+travis_scott
+1
+seller2
+yes
+logout
+
+
+- buy6 expected transaction file output buy6.etf
+
+00                    000000.00
+
+- buy6 expected terminal output buy6.bto
+
+Welcome to the DKM Ticket Selling System!
+Please enter the login command to login:
+Enter username:
+login successful!
+buy-standard privileges initiated.
+choose a transaction to perform (logout, buy):
+enter
+choose a transaction to perform (logout, buy):
+logged out
+enter event title:
+enter amount of tickets you are buying:
+enter seller username:
+transaction invalid. Event title does not exist under seller.
+Please try again.
+choose a transaction to perfrom(logout, buy):
+logged out
+
+- buy6 available tickets file buy6.eatf
+
+travis scott       seller2       500 20
+END
+
+----------------------------------------------------------------------
+
+7. buy7
+
+- buy7 input file buy7 .inp
+login
+seller3
+sell
+drake
+20
+10
+logout
+
+login
+buyer1
+buy
+drake
+5
+seller3
+yes
+logout
+
+- buy7 expected transaction file output buy7.etf
+
+00                    000000.00
+04 drake               seller3       20  10
+03 drake               seller3       20  10
+
+
+- buy7 expected terminal output buy7.bto
+
+Welcome to the DKM Ticket Selling System!
+Please enter the login command to login:
+Enter username:
+login successful!
+seller-standard privileges initiated.
+choose a transaction to perform (logout, sell):
+event title:
+sale price:
+number of tickets per sale:
+transaction accepted. Tickets are now available for sale.
+choose a transaction to perform (logout, sell):
+logged out.
+
+Welcome to the DKM Ticket Selling System!
+Please enter the login command to login:
+Enter username:
+login successful!
+buy-standard privileges initiated.
+choose a transaction to perform (logout, buy):
+event title:
+enter amount of tickets you are buying:
+enter seller username:
+
+cost per ticket:  10
+                   5
+--------------------
+total:            50
+
+is your total cost $ 50 ? (yes or no)
+Tickets bought. Transaction accepted.
+choose a transaction to perform (logout, buy):
+logged out
+
+
+- buy7 available tickets file buy7.eatf
+
+drake              seller3       15  10
+END
+
+----------------------------------------------------------------------
+
+8. buy8
+- buy8 input file buy8.inp
+login
+seller2
+sell
+weeknd
+30
+4
+logout
+
+login
+buyer1
+buy
+weeknd
+3
+seller2
+yes
+logout
+
+- buy8 expected transaction file output buy8.etf
+
+00                    000000.00
+04 weeknd              seller3        4  15
+03 weeknd              seller3        4  15
+
+- buy8 expected terminal output buy8.bto
+
+Welcome to the DKM Ticket Selling System!
+Please enter the login command to login:
+Enter username:
+login successful!
+seller-standard privileges initiated.
+choose a transaction to perform (logout, sell):
+event title:
+sale price:
+number of tickets per sale:
+transaction accepted. Tickets are now available for sale.
+choose a transaction to perform (logout, sell):
+logged out.
+
+Welcome to the DKM Ticket Selling System!
+Please enter the login command to login:
+Enter username:
+login successful!
+buy-standard privileges initiated.
+choose a transaction to perform (logout, buy):
+event title:
+enter amount of tickets you are buying:
+enter seller username:
+
+cost per ticket:  15
+                   3
+--------------------
+total:            45
+
+is your total cost $ 45 ? (yes or no)
+Tickets bought. Transaction accepted.
+choose a transaction to perform (logout, buy):
+logged out.
+
+- buy8 available tickets file buy8.eatf
+
+weeknd              seller3        0  15
+END
+
+----------------------------------------------------------------------
+9. buy9
+- buy9 input file buy9.inp
+
+login
+buyer1
+buy
+travis_scott
+0
+logout
+
+- buy9 expected transaction file output buy9.etf
+
+00                    000000.00
+
+
+- buy9 expected terminal output buy9.bto
+Welcome to the DKM Ticket Selling System!
+Please enter the login command to login:
+Enter username:
+login successful!
+buy-standard privileges initiated.
+choose a transaction to perform (logout, buy):
+event title:
+enter amount of tickets you are buying:
+Transaction declined. Needs to be 1 or more tickets.
+Please try again.
+choose a transaction to perform (logout, buy):
+logged out
+
+- buy9 available tickets file buy9.eatf
+
+travis scott       seller2       500 20
+END
+
+----------------------------------------------------------------------
+10. buy10
+
+- buy10 input file buy10.inp
+
+login
+buyer1
+buy
+weeknd
+5
+logout
+
+- buy10 expected transaction file output buy10.etf
+
+00                    000000.00
+
+- buy10 expected terminal output buy10.bto
+
+Welcome to the DKM Ticket Selling System!
+Please enter the login command to login:
+Enter username:
+login successful!
+buy-standard privileges initiated.
+choose a transaction to perform (logout, buy):
+event title:
+enter amount of tickets you are buying:
+transaction declined. Insufficient amount of tickets.
+Please try again.
+choose a transaction to perform (logout, buy):
+logged out.
+
+- buy10 available tickets file buy10.eatf
+
+weeknd              seller3        5  15
+END

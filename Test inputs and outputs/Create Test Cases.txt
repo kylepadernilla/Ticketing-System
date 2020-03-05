@@ -1,0 +1,312 @@
+-----------------------------------------------------
+CREATE TEST CASES
+-----------------------------------------------------
+All create test cases use a common current user account file as input:
+
+create-test-cases.cuaf (input)
+    admin           AA 000000.00
+    fullStandard    FS 000000.00
+    buyStandard     BS 000000.00
+    sellStandard    SS 000000.00
+    END                         
+
+***********
+CREATE1   *
+***********
+create1.inp (input)
+    login
+    admin
+    create
+    adminNew
+    admin
+    logout
+
+create1.bto (expected output)
+    Welcome to DKM's Ticket System
+    Please enter the login command to login
+    Enter username:
+    Login successful!
+    Choose a transaction to perform (logout, create, delete, sell, buy, refund, addcredit):
+    Enter the new username:
+    Choose the type of user (admin, full-standard, buy-standard, sell-standard): 
+    New user created!
+    Choose a transaction to perform (logout, create, delete, sell, buy, refund, addcredit):
+    Logout successful!
+
+create1.etf (expected output)
+    01 adminNew        AA 000000.00
+    00 admin           AA 000000.00
+
+create1.cuafo (expected output)
+    admin           AA 000000.00
+    fullStandard    FS 000000.00
+    buyStandard     BS 000000.00
+    sellStandard    SS 000000.00
+    adminNew        AA 000000.00
+    END
+
+
+***********
+CREATE2   *
+***********
+create2.inp (input)
+    login
+    admin
+    create
+    fullNew 
+    full-standard
+    logout
+
+create2.bto (expected output)
+    Welcome to DKM's Ticket System
+    Please enter the login command to login
+    Enter username:
+    Login successful!
+    Choose a transaction to perform (logout, create, delete, sell, buy, refund, addcredit):
+    Enter the new username:
+    Choose the type of user (admin, full-standard, buy-standard, sell-standard): 
+    New user created!
+    Choose a transaction to perform (logout, create, delete, sell, buy, refund, addcredit):
+    Logout successful!
+
+create2.etf (expected output)
+    01 fullNew         FS 000000.00
+    00 admin           AA 000000.00
+
+create2.cuafo (expected output)
+    admin           AA 000000.00
+    fullStandard    FS 000000.00
+    buyStandard     BS 000000.00
+    sellStandard    SS 000000.00
+    fullNew         FS 000000.00
+    END
+
+
+***********
+CREATE3   *
+***********
+create3.inp (input)
+    login
+    admin
+    create
+    buyNew 
+    buy-standard
+    logout
+
+create3.bto (expected output)
+    Welcome to DKM's Ticket System
+    Please enter the login command to login
+    Enter username:
+    Login successful!
+    Choose a transaction to perform (logout, create, delete, sell, buy, refund, addcredit):
+    Enter the new username:
+    Choose the type of user (admin, full-standard, buy-standard, sell-standard): 
+    New user created!
+    Choose a transaction to perform (logout, create, delete, sell, buy, refund, addcredit):
+    Logout successful!
+
+create3.etf (expected output)
+    01 buyNew          BS 000000.00
+    00 admin           AA 000000.00
+
+create3.cuafo (expected output)
+    admin           AA 000000.00
+    fullStandard    FS 000000.00
+    buyStandard     BS 000000.00
+    sellStandard    SS 000000.00
+    buyNew          BS 000000.00
+    END
+
+
+***********
+CREATE4   *
+***********
+create4.inp (input)
+    login
+    admin
+    create
+    sellNew 
+    sell-standard
+    logout
+
+create4.bto (expected output)
+    Welcome to DKM's Ticket System
+    Please enter the login command to login
+    Enter username:
+    Login successful!
+    Choose a transaction to perform (logout, create, delete, sell, buy, refund, addcredit):
+    Enter the new username:
+    Choose the type of user (admin, full-standard, buy-standard, sell-standard): 
+    New user created!
+    Choose a transaction to perform (logout, create, delete, sell, buy, refund, addcredit):
+    Logout successful!
+
+create4.etf (expected output)
+    01 sellNew         SS 000000.00
+    00 admin           AA 000000.00
+
+create4.cuafo (expected output)
+    admin           AA 000000.00
+    fullStandard    FS 000000.00
+    buyStandard     BS 000000.00
+    sellStandard    SS 000000.00
+    sellNew         SS 000000.00
+    END
+
+
+***********
+CREATE5   *
+***********
+create5.inp (input)
+    login
+    fullStandard
+    create
+    logout
+
+create5.bto (expected output)
+    Welcome to DKM's Ticket System
+    Please enter the login command to login
+    Enter username:
+    Login successful!
+    Choose a transaction to perform (logout, sell, buy, refund, addcredit):
+    Transaction not available
+    Choose a transaction to perform (logout, sell, buy, refund, addcredit):
+    Logout successful!
+
+create5.etf (expected output)
+    00 fullStandard    FS 000000.00
+
+create5.cuafo (expected output)
+    admin           AA 000000.00
+    fullStandard    FS 000000.00
+    buyStandard     BS 000000.00
+    sellStandard    SS 000000.00
+    END
+
+
+***********
+CREATE6   *
+***********
+create6.inp (input)
+    login
+    buyStandard
+    create
+    logout
+
+create6.bto (expected output)
+    Welcome to DKM's Ticket System
+    Please enter the login command to login
+    Enter username:
+    Login successful!
+    Choose a transaction to perform (logout, buy, refund, addcredit):
+    Transaction not available
+    Choose a transaction to perform (logout, buy, refund, addcredit):
+    Logout successful!
+
+create6.etf (expected output)
+    00 buyStandard     BS 000000.00
+
+create6.cuafo (expected output)
+    admin           AA 000000.00
+    fullStandard    FS 000000.00
+    buyStandard     BS 000000.00
+    sellStandard    SS 000000.00
+    END
+
+
+***********
+CREATE7   *
+***********
+create7.inp (input)
+    login
+    sellStandard
+    create
+    logout
+
+create7.bto (expected output)
+    Welcome to DKM's Ticket System
+    Please enter the login command to login
+    Enter username:
+    Login successful!
+    Choose a transaction to perform (logout, sell, refund, addcredit):
+    Transaction not available
+    Choose a transaction to perform (logout, sell, refund, addcredit):
+    Logout successful!
+
+create7.etf (expected output)
+    00 sellStandard    SS 000000.00
+
+create7.cuafo (expected output)
+    admin           AA 000000.00
+    fullStandard    FS 000000.00
+    buyStandard     BS 000000.00
+    sellStandard    SS 000000.00
+    END
+
+
+***********
+CREATE8   *
+***********
+create8.inp (input)
+    login
+    admin
+    create
+    1234567890abcdef
+    admin
+    logout
+
+create8.bto (expected output)
+    Welcome to DKM's Ticket System
+    Please enter the login command to login
+    Enter username:
+    Login successful!
+    Choose a transaction to perform (logout, create, delete, sell, buy, refund, addcredit):
+    Enter the new username:
+    Choose the type of user (admin, full-standard, buy-standard, sell-standard): 
+    Username cannot be greater than 15 characters
+    Choose a transaction to perform (logout, create, delete, sell, buy, refund, addcredit):
+    Logout successful!
+
+create8.etf (expected output)
+    00 admin           AA 000000.00
+
+create8.cuafo (expected output)
+    admin           AA 000000.00
+    fullStandard    FS 000000.00
+    buyStandard     BS 000000.00
+    sellStandard    SS 000000.00
+    END
+
+
+***********
+CREATE9   *
+***********
+create9.inp (input)
+    login
+    admin
+    create
+    fullStandard
+    full-standard
+    logout
+
+create9.bto (expected output)
+    Welcome to DKM's Ticket System
+    Please enter the login command to login
+    Enter username:
+    Login successful!
+    Choose a transaction to perform (logout, create, delete, sell, buy, refund, addcredit):
+    Enter the new username:
+    Choose the type of user (admin, full-standard, buy-standard, sell-standard): 
+    Username already exists
+    Choose a transaction to perform (logout, create, delete, sell, buy, refund, addcredit):
+    Logout successful!
+
+create9.etf (expected output)
+    00 admin           AA 000000.00
+
+create9.cuafo (expected output)
+    admin           AA 000000.00
+    fullStandard    FS 000000.00
+    buyStandard     BS 000000.00
+    sellStandard    SS 000000.00
+    END

@@ -1,0 +1,57 @@
+-----------------------------------------------------
+LOGOUT TEST CASES
+-----------------------------------------------------
+All logout test cases use a common current user account file:
+
+logout-test-cases.cuaf
+    adminUser       AA 000000.00
+    fullStandard    FS 000000.00
+    buyStandard     BS 000000.00
+    sellStandard    SS 000000.00
+    END                         
+
+***********
+LOGOUT1   *
+***********
+logout1.bto
+    Welcome to DKM's Ticket System
+    Please enter the login command to login
+    Enter username:
+    Login successful!
+    Choose a transaction to perform (logout, create, delete, sell, buy, refund, addcredit):
+    Logout successful!
+
+logout1.etf
+    00 adminUser       AA 000000.00
+
+logout1.inp
+    login
+    adminUser
+    logout
+
+***********
+LOGOUT2   *
+***********
+logout2.bto
+    Welcome to DKM's Ticket System
+    Please enter the login command to login
+    No active session, please login first
+
+logout2.etf
+    00 adminUser       AA 000000.00
+
+logout2.inp
+    logout
+
+***********
+LOGOUT3   *
+***********
+logout3.bto
+    Welcome to DKM's Ticket System
+    Please enter the login command to login
+    No active session, please login first
+
+logout3.etf
+
+logout3.inp
+    create

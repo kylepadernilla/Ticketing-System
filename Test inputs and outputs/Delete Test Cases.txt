@@ -1,0 +1,208 @@
+DELETE TEST CASES
+
+delete_test_cases.cuaf:
+admin           AA 000000.00
+buystandard     BS 000000.00
+sellstandard    SS 000000.00
+standard        FS 000000.00
+END
+
+Test cases:
+
+1. delete1
+
+- delete1 input file buy1.inp
+
+login
+admin
+delete
+standard
+logout
+
+- delete1 expected transaction file output delete1.etf
+
+02 admin           AA 000000.00
+00                    000000.00
+
+- delete1 expected terminal output delete1.bto
+
+Welcome to the DKM Ticket Selling System!
+Please enter the login command to login:
+Enter username:
+login successful!
+Admin privileges initiated.
+choose a transaction to perform (logout, create, delete, sell, buy, refund, addcredit):
+enter username to be deleted:
+user account deleted.
+choose a transaction to perform (logout, create, delete, sell, buy, refund, addcredit):
+logged out
+
+------------------------------------------------
+2. delete2
+
+- delete2 input file delete2.inp
+login
+buyer
+delete
+logout
+
+- delete2 expected transaction file output delete2.etf
+
+00                    000000.00
+
+- delete2 expected terminal output delete2.bto
+
+Welcome to the DKM Ticket Selling System!
+Please enter the login command to login:
+Enter username:
+login successful!
+buy-standard privileges initiated.
+choose a transaction to perform (logout, buy):
+Transaction invalid, you do not have admin privileges.
+choose a transaction to perform (logout, buy):
+logged out
+------------------------------------------------
+3. delete3
+
+- delete3 input file delete3.inp
+
+login
+seller
+delete
+logout
+
+
+- delete3 expected transaction file output delete3.etf
+
+00                    000000.00
+
+- delete3 expected terminal output delete3.bto
+
+Welcome to the DKM Ticket Selling System!
+Please enter the login command to login:
+Enter username:
+login successful!
+seller-standard privileges initiated.
+choose a transaction to perform (logout, sell):
+Transaction invalid, you do not have admin privileges.
+choose a transaction to perform (logout, sell):
+logged out
+------------------------------------------------
+4. delete4
+
+- delete4 input file delete4.inp
+login
+admin
+delete
+imaginary_user
+logout
+
+- delete4 expected transaction file output delete4.etf
+
+00                    000000.00
+
+- delete4 expected terminal output delete4.bto
+
+Welcome to the DKM Ticket Selling System!
+Please enter the login command to login:
+Enter username:
+login successful!
+admin privileges initiated.
+choose a transaction to perform (logout, create, delete, sell, buy, refund, addcredit):
+enter username to be deleted:
+username doesn't exist, please try again.
+choose a transaction to perform (logout, create, delete, sell, buy, refund, addcredit):
+logged out
+------------------------------------------------
+5. delete5
+
+- delete5 input file delete5.inp
+
+login
+admin
+delete
+admin
+logout
+
+- delete5 expected transaction file output delete5.etf
+
+00                    000000.00
+
+- delete5 expected terminal output delete5.bto
+
+Welcome to the DKM Ticket Selling System!
+Please enter the login command to login:
+Enter username:
+login successful!
+Admin privileges initiated.
+choose a transaction to perform (logout, create, delete, sell, buy, refund, addcredit):
+enter username to be deleted:
+Transaction declined. Cannot delete current user.
+choose a transaction to perform (logout, create, delete, sell, buy, refund, addcredit):
+logged out
+------------------------------------------------
+6. delete6
+
+- delete6 input file delete6.inp
+login
+admin
+delete
+standard
+logout
+
+- delete6 expected transaction file output delete6.etf
+
+02 admin           AA 000000.00
+00                    000000.00
+
+- delete6 expected terminal output delete6.bto
+
+Welcome to the DKM Ticket Selling System!
+Please enter the login command to login:
+Enter username:
+login successful!
+Admin privileges initiated.
+choose a transaction to perform (logout, create, delete, sell, buy, refund, addcredit):
+enter username to be deleted:
+user account deleted.
+choose a transaction to perform (logout, create, delete, sell, buy, refund, addcredit):
+logged out
+
+------------------------------------------------
+7. delete7
+
+- delete7 input file delete7.inp
+
+login
+admin
+delete
+buystandard
+logout
+login
+buystandard
+logout
+
+
+- delete7 expected transaction file output delete7.etf
+
+02 admin           AA 000000.00
+00                    000000.00
+
+- delete7 expected terminal output delete7.bto
+
+Welcome to the DKM Ticket Selling System!
+Please enter the login command to login:
+Enter username:
+login successful!
+Admin privileges initiated.
+choose a transaction to perform (logout, create, delete, sell, buy, refund, addcredit):
+enter username to be deleted:
+user account deleted.
+choose a transaction to perform (logout, create, delete, sell, buy, refund, addcredit):
+logged out
+
+Welcome to the DKM Ticket Selling System!
+username:
+Sorry user does not exist. Please try again.
+username:
+logged out.

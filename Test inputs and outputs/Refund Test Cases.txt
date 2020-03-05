@@ -1,0 +1,323 @@
+
+REFUND TEST CASES
+
+refund.cuaf.txt file:
+admin           AA 000000.00
+buystandard     BS 000000.00
+sellstandard    SS 010000.00
+sellstandard3   SS 000000.00
+buystandard3    BS 000999.00
+END
+
+Test Cases:
+
+1. refund1
+
+- refund1 input file refund1.inp
+login
+admin
+refund
+buystandard
+sellstandard
+500
+logout
+
+- refund1 expected transaction file output refund1.etf
+
+05 buystandard     sellstandard    000500.00
+00                    000000.00
+
+- refund1 expected terminal output refund1.bto
+
+Welcome to the DKM Ticket Selling System!
+Please enter the login command to login:
+Enter username:
+login successful!
+seller-standard privileges initiated.
+choose a transaction to perform (logout, create, delete, sell, buy, refund, addcredit):
+buyer's username:
+your username:
+amount to transfer:
+Transaction accepted. Credit transfer succesful.
+choose a transaction to perform (logout, create, delete, sell, buy, refund, addcredit):
+logged out.
+-----------------------------------------------
+2. refund2
+- refund2 input file refund2.inp
+
+login
+admin
+refund
+buystandard
+sellstandard
+ABCD
+logout
+
+
+- refund2 expected transaction file output refund2.etf
+
+00                    000000.00
+
+- refund2 expected terminal output refund2.bto
+
+Welcome to the DKM Ticket Selling System!
+Please enter the login command to login:
+Enter username:
+login successful!
+admin privileges initiated.
+choose a transaction to perform (logout, create, delete, sell, buy, refund, addcredit):
+buyer's username:
+your username:
+amount to transfer:
+Transaction declined. Amount must be in decimal format.
+Please try again.
+choose a transaction to perform (logout, create, delete, sell, buy, refund, addcredit):
+logged out.
+-----------------------------------------------
+3. refund3
+
+- refund3 input file refund3.inp
+login
+admin
+refund
+buystandard
+sellstandard
+500
+logout
+
+- refund3 expected transaction file output refund3.etf
+
+05 buystandard     sellstandard    000500.00
+00                    000000.00
+
+- refund3 expected terminal output refund3.bto
+
+Welcome to the DKM Ticket Selling System!
+Please enter the login command to login:
+Enter username:
+login successful!
+admin privileges initiated.
+choose a transaction to perform (logout, create, delete, sell, buy, refund, addcredit):
+buyer's username:
+your username:
+amount to transfer:
+Transaction accepted. Credit transfer successful.
+choose a transaction to perform (logout, create, delete, sell, buy, refund, addcredit):
+logged out.
+
+- current users file in refund.cuatf. Both seller and buyer are current users. (check above)
+-----------------------------------------------
+4. refund4
+
+- refund4 input file refund4.inp
+
+login
+admin
+refund
+buystandard2
+sellstandard
+logout
+
+- refund4 expected transaction file output refund4.etf
+
+00                    000000.00
+
+- refund4 expected terminal output refund4.bto
+
+Welcome to the DKM Ticket Selling System!
+Please enter the login command to login:
+Enter username:
+login successful!
+admin privileges initiated.
+choose a transaction to perform (logout, create, delete, sell, buy, refund, addcredit):
+buyer's username:
+seller's username:
+Transaction declined. Buyer is not a current user.
+Please try again.
+choose a transaction to perform (logout, create, delete, sell, buy, refund, addcredit):
+logged out.
+-----------------------------------------------
+5. refund5
+
+- refund5 input file refund5.inp
+
+login
+admin
+refund
+buystandard
+sellstandard2
+logout
+
+- refund5 expected transaction file output refund5.etf
+
+00                    000000.00
+
+- refund5 expected terminal output refund5.bto
+
+Welcome to the DKM Ticket Selling System!
+Please enter the login command to login:
+Enter username:
+login successful!
+admin privileges initiated.
+choose a transaction to perform (logout, create, delete, sell, buy, refund, addcredit):
+buyer's username:
+seller's username:
+Transaction declined. Seller is not a current user.
+Please try again.
+choose a transaction to perform (logout, create, delete, sell, buy, refund, addcredit):
+logged out.
+-----------------------------------------------
+6. refund6
+
+- refund6 input file refund6.inp
+
+login
+admin
+refund
+buystandard2
+sellstandard2
+logout
+
+
+- refund6 expected transaction file output refund6.etf
+
+00                    000000.00
+
+- refund6 expected terminal output refund6.bto
+
+Welcome to the DKM Ticket Selling System!
+Please enter the login command to login:
+Enter username:
+login successful!
+admin privileges initiated.
+choose a transaction to perform (logout, create, delete, sell, buy, refund, addcredit):
+buyer's username:
+seller's username:
+Transaction declined. buyer and seller aren't current users.
+Please try again.
+choose a transaction to perform (logout, create, delete, sell, buy, refund, addcredit):
+logged out.
+-----------------------------------------------
+7. refund7
+
+- refund7 input file refund7.inp
+login
+admin
+refund
+buystandard
+sellstandard
+500
+logout
+
+- refund7 expected transaction file output refund7.etf
+
+05 buystandard     sellstandard    000500.00
+00                    000000.00
+
+- refund7 expected terminal output refund5.bto
+
+Welcome to the DKM Ticket Selling System!
+Please enter the login command to login:
+Enter username:
+login successful!
+admin privileges initiated.
+choose a transaction to perform (logout, create, delete, sell, buy, refund, addcredit):
+buyer's username:
+your username:
+amount to transfer:
+Transaction accepted. Credit transfer successful.
+choose a transaction to perform (logout, create, delete, sell, buy, refund, addcredit):
+logged out.
+
+- refund7 current users file to check credit transfer refund7.cuafo:
+
+admin           AA 000000.00
+buystandard     BS 000500.00
+sellstandard    SS 010000.00
+standard        FS 000000.00
+END
+-----------------------------------------------
+8. refund8
+
+- refund8 input file refund8.inp
+login
+admin
+refund
+buystandard
+sellstandard3
+500
+logout
+
+- refund8 expected transaction file output refund8.etf
+
+00                    000000.00
+
+- refund8 expected terminal output refund8.bto
+
+Welcome to the DKM Ticket Selling System!
+Please enter the login command to login:
+Enter username:
+login successful!
+admin privileges initiated.
+choose a transaction to perform (logout, create, delete, sell, buy, refund, addcredit):
+buyer's username:
+seller username:
+amount to transfer:
+Transaction declined. Not enough credit in seller account.
+choose a transaction to perform (logout, create, delete, sell, buy, refund, addcredit):
+logged out.
+-----------------------------------------------
+9. refund9
+
+- refund9 input file refund9.inp
+login
+admin
+refund
+buystandard3
+sellstandard
+logout
+
+- refund9 expected transaction file output refund9.etf
+
+00                    000000.00
+
+- refund9 expected terminal output refund9.bto
+
+Welcome to the DKM Ticket Selling System!
+Please enter the login command to login:
+Enter username:
+login successful!
+admin privileges initiated.
+choose a transaction to perform (logout, create, delete, sell, buy, refund, addcredit):
+buyer's username:
+seller username:
+amount to transfer:
+Transaction declined. Buyer's credit will exceed credit limit after transaction.
+choose a transaction to perform (logout, create, delete, sell, buy, refund, addcredit):
+logged out.
+-----------------------------------------------
+10. refund10
+
+- refund10 input file refund10.inp
+
+login
+buystandard
+refund
+logout
+
+- refund10 expected transaction file output refund10.etf
+
+00                    000000.00
+
+- refund10 expected terminal output refund10.bto
+
+Welcome to the DKM Ticket Selling System!
+Please enter the login command to login:
+Enter username:
+login successful!
+buyer-standard privileges initiated.
+choose a transaction to perform (logout, buy):
+Transaction declined. You do not have admin privileges.
+Try again.
+choose a transaction to perform (logout, buy):
+logged out.

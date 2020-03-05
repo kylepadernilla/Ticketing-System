@@ -1,0 +1,553 @@
+-----------------------------------------------------
+ADDCREDIT TEST CASES
+-----------------------------------------------------
+Test cases 1 to 10 use a common current user account file as input:
+
+addcredit-test-cases.cuaf (input)
+    admin           AA 000000.00
+    fullStandard    FS 000000.00
+    buyStandard     BS 000000.00
+    sellStandard    SS 000000.00
+    END                         
+
+**************
+ADDCREDIT1   *
+**************
+addcredit1.inp (input)
+    login
+    admin
+    addcredit
+    fullStandard
+    10.00
+    logout
+
+addcredit1.bto (expected output)
+    Welcome to DKM's Ticket System
+    Please enter the login command to login
+    Enter username:
+    Login successful!
+    Choose a transaction to perform (logout, create, delete, sell, buy, refund, addcredit):
+    Enter the username to add credit for:
+    Enter the amount to add:
+    Credit added!
+    Choose a transaction to perform (logout, create, delete, sell, buy, refund, addcredit):
+    Logout successful!
+
+addcredit1.etf (expected output)
+    06 fullStandard    FS 000010.00
+    00 admin           AA 000000.00
+
+addcredit1.cuafo (expected output)
+    admin           AA 000000.00
+    fullStandard    FS 000010.00
+    buyStandard     BS 000000.00
+    sellStandard    SS 000000.00
+    END
+
+
+**************
+ADDCREDIT2   *
+**************
+addcredit2.inp (input)
+    login
+    admin
+    addcredit
+    invalidUser
+    10.00
+    logout
+
+addcredit2.bto (expected output)
+    Welcome to DKM's Ticket System
+    Please enter the login command to login
+    Enter username:
+    Login successful!
+    Choose a transaction to perform (logout, create, delete, sell, buy, refund, addcredit):
+    Enter the username to add credit for:
+    Enter the amount to add:
+    Could not complete transaction. User does not exist.
+    Choose a transaction to perform (logout, create, delete, sell, buy, refund, addcredit):
+    Logout successful!
+
+addcredit2.etf (expected output)
+    00 admin           AA 000000.00
+
+addcredit2.cuafo (expected output)
+    admin           AA 000000.00
+    fullStandard    FS 000000.00
+    buyStandard     BS 000000.00
+    sellStandard    SS 000000.00
+    END
+
+
+**************
+ADDCREDIT3   *
+**************
+addcredit3.inp (input)
+    login
+    admin
+    admin
+    addcredit
+    500.00
+    admin
+    addcredit
+    500.00
+    logout
+
+addcredit3.bto (expected output)
+    Welcome to DKM's Ticket System
+    Please enter the login command to login
+    Enter username:
+    Login successful!
+    Choose a transaction to perform (logout, create, delete, sell, buy, refund, addcredit):
+    Enter the username to add credit for:
+    Enter the amount to add:
+    Credit added!
+    Choose a transaction to perform (logout, create, delete, sell, buy, refund, addcredit):
+    Enter the username to add credit for:
+    Enter the amount to add:
+    Credit added!
+    Choose a transaction to perform (logout, create, delete, sell, buy, refund, addcredit):
+    Logout successful!
+
+addcredit3.etf (expected output)
+    06 admin           FS 000500.00
+    06 admin           FS 001000.00
+    00 admin           AA 001000.00
+
+addcredit3.cuafo (expected output)
+    admin           AA 001000.00
+    fullStandard    FS 000000.00
+    buyStandard     BS 000000.00
+    sellStandard    SS 000000.00
+    END
+
+
+**************
+ADDCREDIT4   *
+**************
+addcredit4.inp (input)
+    login
+    fullStandard
+    addcredit
+    500.00
+    addcredit
+    500.00
+    logout
+
+addcredit4.bto (expected output)
+    Welcome to DKM's Ticket System
+    Please enter the login command to login
+    Enter username:
+    Login successful!
+    Choose a transaction to perform (logout, sell, buy, refund, addcredit):
+    Enter the amount to add:
+    Credit added!
+    Choose a transaction to perform (logout, sell, buy, refund, addcredit):
+    Enter the amount to add:
+    Credit added!
+    Choose a transaction to perform (logout, sell, buy, refund, addcredit):
+    Logout successful!
+
+addcredit4.etf (expected output)
+    06 fullStandard    FS 000500.00
+    06 fullStandard    FS 001000.00
+    00 fullStandard    FS 001000.00
+
+addcredit4.cuafo (expected output)
+    admin           AA 000000.00
+    fullStandard    FS 001000.00
+    buyStandard     BS 000000.00
+    sellStandard    SS 000000.00
+    END
+
+
+**************
+ADDCREDIT5   *
+**************
+addcredit5.inp (input)
+    login
+    buyStandard
+    addcredit
+    500.00
+    addcredit
+    500.00
+    logout
+
+addcredit5.bto (expected output)
+    Welcome to DKM's Ticket System
+    Please enter the login command to login
+    Enter username:
+    Login successful!
+    Choose a transaction to perform (logout, buy, refund, addcredit):
+    Enter the amount to add:
+    Credit added!
+    Choose a transaction to perform (logout, buy, refund, addcredit):
+    Enter the amount to add:
+    Credit added!
+    Choose a transaction to perform (logout, buy, refund, addcredit):
+    Logout successful!
+
+addcredit5.etf (expected output)
+    06 buyStandard     BS 000500.00
+    06 buyStandard     BS 001000.00
+    00 buyStandard     BS 001000.00
+
+addcredit5.cuafo (expected output)
+    admin           AA 000000.00
+    fullStandard    FS 000000.00
+    buyStandard     BS 001000.00
+    sellStandard    SS 000000.00
+    END
+
+
+**************
+ADDCREDIT6   *
+**************
+addcredit6.inp (input)
+    login
+    sellStandard
+    addcredit
+    500.00
+    addcredit
+    500.00
+    logout
+
+addcredit6.bto (expected output)
+    Welcome to DKM's Ticket System
+    Please enter the login command to login
+    Enter username:
+    Login successful!
+    Choose a transaction to perform (logout, sell, refund, addcredit):
+    Enter the amount to add:
+    Credit added!
+    Choose a transaction to perform (logout, sell, refund, addcredit):
+    Enter the amount to add:
+    Credit added!
+    Choose a transaction to perform (logout, sell, refund, addcredit):
+    Logout successful!
+
+addcredit6.etf (expected output)
+    06 sellStandard    SS 000500.00
+    06 sellStandard    SS 001000.00
+    00 sellStandard    SS 001000.00
+
+addcredit6.cuafo (expected output)
+    admin           AA 000000.00
+    fullStandard    FS 000000.00
+    buyStandard     BS 000000.00
+    sellStandard    SS 001000.00
+    END
+
+
+**************
+ADDCREDIT7   *
+**************
+addcredit7.inp (input)
+    login
+    admin
+    admin
+    addcredit
+    1000.00
+    admin
+    addcredit
+    1.00
+    logout
+
+addcredit7.bto (expected output)
+    Welcome to DKM's Ticket System
+    Please enter the login command to login
+    Enter username:
+    Login successful!
+    Choose a transaction to perform (logout, create, delete, sell, buy, refund, addcredit):
+    Enter the username to add credit for:
+    Enter the amount to add:
+    Credit added!
+    Choose a transaction to perform (logout, create, delete, sell, buy, refund, addcredit):
+    Enter the username to add credit for:
+    Enter the amount to add:
+    Could not complete transaction. Credit exceeds session's maximum of 1000
+    Choose a transaction to perform (logout, create, delete, sell, buy, refund, addcredit):
+    Logout successful!
+
+addcredit7.etf (expected output)
+    06 fullStandard    FS 001000.00
+    00 admin           AA 001000.00
+
+addcredit7.cuafo (expected output)
+    admin           AA 001000.00
+    fullStandard    FS 000000.00
+    buyStandard     BS 000000.00
+    sellStandard    SS 000000.00
+    END
+
+
+**************
+ADDCREDIT8   *
+**************
+addcredit8.inp (input)
+    login
+    fullStandard
+    addcredit
+    1000.00
+    addcredit
+    1.00
+    logout
+
+addcredit8.bto (expected output)
+    Welcome to DKM's Ticket System
+    Please enter the login command to login
+    Enter username:
+    Login successful!
+    Choose a transaction to perform (logout, sell, buy, refund, addcredit):
+    Enter the amount to add:
+    Credit added!
+    Choose a transaction to perform (logout, sell, buy, refund, addcredit):
+    Enter the amount to add:
+    Could not complete transaction. Credit exceeds session's maximum of 1000
+    Choose a transaction to perform (logout, sell, buy, refund, addcredit):
+    Logout successful!
+
+addcredit8.etf (expected output)
+    06 fullStandard    FS 001000.00
+    00 fullStandard    FS 001000.00
+
+addcredit8.cuafo (expected output)
+    admin           AA 000000.00
+    fullStandard    FS 001000.00
+    buyStandard     BS 000000.00
+    sellStandard    SS 000000.00
+    END
+
+
+**************
+ADDCREDIT9   *
+**************
+addcredit9.inp (input)
+    login
+    buyStandard
+    addcredit
+    1000.00
+    addcredit
+    1.00
+    logout
+
+addcredit9.bto (expected output)
+    Welcome to DKM's Ticket System
+    Please enter the login command to login
+    Enter username:
+    Login successful!
+    Choose a transaction to perform (logout, buy, refund, addcredit):
+    Enter the amount to add:
+    Credit added!
+    Choose a transaction to perform (logout, buy, refund, addcredit):
+    Enter the amount to add:
+    Could not complete transaction. Credit exceeds session's maximum of 1000
+    Choose a transaction to perform (logout, buy, refund, addcredit):
+    Logout successful!
+
+addcredit9.etf (expected output)
+    06 buyStandard     BS 001000.00
+    00 buyStandard     BS 001000.00
+
+addcredit9.cuafo (expected output)
+    admin           AA 000000.00
+    fullStandard    FS 000000.00
+    buyStandard     BS 001000.00
+    sellStandard    SS 000000.00
+    END
+
+
+**************
+ADDCREDIT10  *
+**************
+addcredit10.inp (input)
+    login
+    sellStandard
+    addcredit
+    1000.00
+    addcredit
+    1.00
+    logout
+
+addcredit10.bto (expected output)
+    Welcome to DKM's Ticket System
+    Please enter the login command to login
+    Enter username:
+    Login successful!
+    Choose a transaction to perform (logout, sell, refund, addcredit):
+    Enter the amount to add:
+    Credit added!
+    Choose a transaction to perform (logout, sell, refund, addcredit):
+    Enter the amount to add:
+    Could not complete transaction. Credit exceeds session's maximum of 1000
+    Choose a transaction to perform (logout, sell, refund, addcredit):
+    Logout successful!
+
+addcredit10.etf (expected output)
+    06 sellStandard    SS 001000.00
+    00 sellStandard    SS 001000.00
+
+addcredit10.cuafo (expected output)
+    admin           AA 000000.00
+    fullStandard    FS 000000.00
+    buyStandard     BS 000000.00
+    sellStandard    SS 001000.00
+    END
+    
+
+**************
+ADDCREDIT11  *
+**************
+addcredit11.inp (input)
+    login
+    admin
+    admin
+    addcredit
+    1.00
+    logout
+
+addcredit11.cuaf (input)
+    admin           AA 999999.00
+    fullStandard    FS 000000.00
+    buyStandard     BS 000000.00
+    sellStandard    SS 000000.00
+    END                         
+
+addcredit11.bto (expected output)
+    Welcome to DKM's Ticket System
+    Please enter the login command to login
+    Enter username:
+    Login successful!
+    Choose a transaction to perform (logout, create, delete, sell, buy, refund, addcredit):
+    Enter the username to add credit for:
+    Enter the amount to add:
+    Could not complete transaction. Credit exceeds user's maximum of 999999
+    Choose a transaction to perform (logout, create, delete, sell, buy, refund, addcredit):
+    Logout successful!
+
+addcredit11.etf (expected output)
+    00 admin           AA 999999.00
+
+addcredit11.cuafo (expected output)
+    admin           AA 999999.00
+    fullStandard    FS 000000.00
+    buyStandard     BS 000000.00
+    sellStandard    SS 000000.00
+    END
+
+
+**************
+ADDCREDIT12  *
+**************
+addcredit12.inp (input)
+    login
+    fullStandard
+    addcredit
+    1.00
+    logout
+
+addcredit12.cuaf (input)
+    admin           AA 000000.00
+    fullStandard    FS 999999.00
+    buyStandard     BS 000000.00
+    sellStandard    SS 000000.00
+    END    
+
+addcredit12.bto (expected output)
+    Welcome to DKM's Ticket System
+    Please enter the login command to login
+    Enter username:
+    Login successful!
+    Choose a transaction to perform (logout, sell, buy, refund, addcredit):
+    Enter the amount to add:
+    Could not complete transaction. Credit exceeds user's maximum of 999999
+    Choose a transaction to perform (logout, sell, buy, refund, addcredit):
+    Logout successful!
+
+addcredit12.etf (expected output)
+    00 fullStandard    FS 999999.00
+
+addcredit12.cuafo (expected output)
+    admin           AA 000000.00
+    fullStandard    FS 999999.00
+    buyStandard     BS 000000.00
+    sellStandard    SS 000000.00
+    END
+
+
+**************
+ADDCREDIT13  *
+**************
+addcredit13.inp (input)
+    login
+    buyStandard
+    addcredit
+    1.00
+    logout
+
+addcredit13.cuaf (input)
+    admin           AA 000000.00
+    fullStandard    FS 000000.00
+    buyStandard     BS 999999.00
+    sellStandard    SS 000000.00
+    END  
+
+addcredit13.bto (expected output)
+    Welcome to DKM's Ticket System
+    Please enter the login command to login
+    Enter username:
+    Login successful!
+    Choose a transaction to perform (logout, buy, refund, addcredit):
+    Enter the amount to add:
+    Could not complete transaction. Credit exceeds user's maximum of 999999
+    Choose a transaction to perform (logout, buy, refund, addcredit):
+    Logout successful!
+
+addcredit13.etf (expected output)
+    00 buyStandard     BS 999999.00
+
+addcredit13.cuafo (expected output)
+    admin           AA 000000.00
+    fullStandard    FS 000000.00
+    buyStandard     BS 999999.00
+    sellStandard    SS 000000.00
+    END
+
+
+**************
+ADDCREDIT14  *
+**************
+addcredit14.inp (input)
+    login
+    sellStandard
+    addcredit
+    1.00
+    logout
+
+addcredit14.cuaf (input)
+    admin           AA 000000.00
+    fullStandard    FS 000000.00
+    buyStandard     BS 000000.00
+    sellStandard    SS 999999.00
+    END  
+
+addcredit14.bto (expected output)
+    Welcome to DKM's Ticket System
+    Please enter the login command to login
+    Enter username:
+    Login successful!
+    Choose a transaction to perform (logout, sell, refund, addcredit):
+    Enter the amount to add:
+    Could not complete transaction. Credit exceeds user's maximum of 999999
+    Choose a transaction to perform (logout, sell, refund, addcredit):
+    Logout successful!
+
+addcredit14.etf (expected output)
+    00 sellStandard    SS 999999.00
+
+addcredit14.cuafo (expected output)
+    admin           AA 000000.00
+    fullStandard    FS 000000.00
+    buyStandard     BS 000000.00
+    sellStandard    SS 999999.00
+    END

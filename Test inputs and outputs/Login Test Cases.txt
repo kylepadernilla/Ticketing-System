@@ -1,0 +1,139 @@
+-----------------------------------------------------
+LOGIN TEST CASES
+-----------------------------------------------------
+All login test cases use a common current user account file:
+
+login-test-cases.cuaf
+    adminUser       AA 000000.00
+    fullStandard    FS 000000.00
+    buyStandard     BS 000000.00
+    sellStandard    SS 000000.00
+    END                         
+
+***********
+LOGIN1    *
+***********
+login1.bto
+    Welcome to DKM's Ticket System
+    Please enter the login command to login
+    Enter username:
+    Login successful!
+    Choose a transaction to perform (logout, create, delete, sell, buy, refund, addcredit):
+    Logout successful!
+
+login1.etf
+    00 adminUser       AA 000000.00
+
+login1.inp
+    login
+    adminUser
+    logout
+
+***********
+LOGIN2    *
+***********
+login2.bto
+    Welcome to DKM's Ticket System
+    Please enter the login command to login
+    Unable to perform transaction. Please login first
+
+login2.etf
+
+
+login2.inp
+    create
+
+***********
+LOGIN3    *
+***********
+login3.bto
+    Welcome to DKM's Ticket System
+    Please enter the login command to login
+    Enter username:
+    Login successful!
+    Choose a transaction to perform (logout, create, delete, sell, buy, refund, addcredit):
+    Logout successful!
+
+login3.etf
+    00 fullStandard    FS 000000.00
+
+login3.inp
+    login
+    fullStandard
+    logout
+
+***********
+LOGIN4    *
+***********
+login4.bto
+    Welcome to DKM's Ticket System
+    Please enter the login command to login
+    Enter username:
+    Login successful!
+    Choose a transaction to perform (logout, create, delete, sell, buy, refund, addcredit):
+    Logout successful!
+
+login4.etf
+    00 buyStandard     BS 000000.00
+
+login4.inp
+    login
+    buyStandard
+    logout
+
+***********
+LOGIN5    *
+***********
+login5.bto
+    Welcome to DKM's Ticket System
+    Please enter the login command to login
+    Enter username:
+    Login successful!
+    Choose a transaction to perform (logout, create, delete, sell, buy, refund, addcredit):
+    Logout successful!
+
+login5.etf
+    00 sellStandard    SS 000000.00
+
+login5.inp
+    login
+    sellStandard
+    logout
+
+***********
+LOGIN6    *
+***********
+login6.bto
+    Welcome to DKM's Ticket System
+    Please enter the login command to login
+    Enter username:
+    Login successful!
+    Choose a transaction to perform (logout, create, delete, sell, buy, refund, addcredit):
+    Invalid transaction
+    Choose a transaction to perform (logout, create, delete, sell, buy, refund, addcredit):
+    Logout successful!
+
+login6.etf
+    00 sellStandard    SS 000000.00
+
+login6.inp
+    login
+    sellStandard
+    login
+    logout
+
+***********
+LOGIN7    *
+***********
+login7.bto
+    Welcome to DKM's Ticket System
+    Please enter the login command to login
+    Enter username:
+    Username does not exist!
+
+login7.etf
+    
+
+login7.inp
+    login
+    danica

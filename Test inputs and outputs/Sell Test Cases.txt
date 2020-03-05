@@ -1,0 +1,494 @@
+-----------------------------------------------------
+SELL TEST CASES
+-----------------------------------------------------
+All sell test cases use a common current user account file:
+
+sell-test-cases.cuaf
+    adminUser       AA 000000.00
+    fullStandard    FS 000000.00
+    buyStandard     BS 000000.00
+    sellStandard    SS 000000.00
+    END                         
+
+***********
+SELL1     *
+***********
+sell1.bto
+    Welcome to DKM's Ticket System
+    Please enter the login command to login
+    Enter username:
+    Login successful!
+    Choose a transaction to perform (logout, create, delete, sell, buy, refund, addcredit):
+    Enter the event title:
+    Enter the sale price for the tickets in dollars: 
+    How many tickets would you like to sell? (max 100):
+    Tickets successfully posted on sale!
+    Choose a transaction to perform (logout, create, delete, sell, buy, refund, addcredit):
+    Logout successful!
+
+sell1.eatf
+    Red_Velvet_Tour:_Toronto  adminUser       004 090.00
+    END                                                 
+
+sell1.etf
+    03 Red_Velvet_Tour:_Toronto adminUser       004 090.00
+    00 adminUser       AA 000000.00
+
+sell1.inp
+    login
+    adminUser
+    sell
+    Red Velvet Tour: Toronto
+    90
+    4
+    logout
+
+***********
+SELL2     *
+***********
+sell2.bto
+    Welcome to DKM's Ticket System
+    Please enter the login command to login
+    Enter username:
+    Login successful!
+    Choose a transaction to perform (logout, create, delete, sell, buy, refund, addcredit):
+    Enter the event title:
+    Enter the sale price for the tickets in dollars: 
+    How many tickets would you like to sell? (max 100):
+    Tickets successfully posted on sale!
+    Choose a transaction to perform (logout, create, delete, sell, buy, refund, addcredit):
+    Logout successful!
+
+sell2.eatf
+    Red_Velvet_Tour:_Toronto  adminUser       004 090.00
+    END                                                 
+
+sell2.etf
+    03 Red_Velvet_Tour:_Toronto  adminUser       004 090.00
+    00 adminUser       AA 000000.00
+
+sell2.inp
+    login
+    adminUser
+    sell
+    Red Velvet Tour: Toronto
+    90
+    4
+    logout
+
+***********
+SELL3     *
+***********
+sell3.bto
+    Welcome to DKM's Ticket System
+    Please enter the login command to login
+    Enter username:
+    Login successful!
+    Choose a transaction to perform (logout, create, delete, sell, buy, refund, addcredit):
+    Enter the event title:
+    Enter the sale price for the tickets in dollars: 
+    How many tickets would you like to sell? (max 100):
+    Tickets successfully posted on sale!
+    Choose a transaction to perform (logout, create, delete, sell, buy, refund, addcredit):
+    Logout successful!
+
+sell3.eatf
+    Red_Velvet_Tour:_Toronto  fullStandard    004 090.00
+    END                                                 
+
+sell3.etf
+    03 Red_Velvet_Tour:_Toronto  fullStandard    004 090.00
+    00 fullStandard    FS 000000.00
+
+sell3.inp
+    login
+    fullStandard
+    sell
+    Red Velvet Tour: Toronto
+    90
+    4
+    logout
+
+***********
+SELL4     *
+***********
+sell4.bto
+    Welcome to DKM's Ticket System
+    Please enter the login command to login
+    Enter username:
+    Login successful!
+    Choose a transaction to perform (logout, create, delete, sell, buy, refund, addcredit):
+    Enter the event title:
+    Enter the sale price for the tickets in dollars: 
+    How many tickets would you like to sell? (max 100):
+    Tickets successfully posted on sale!
+    Choose a transaction to perform (logout, create, delete, sell, buy, refund, addcredit):
+    Logout successful!
+
+sell4.eatf
+    Red_Velvet_Tour:_Toronto  sellStandard    004 090.00
+    END                                                 
+
+sell4.etf
+    03 Red_Velvet_Tour:_Toronto  sellStandard    004 090.00
+    00 sellStandard    SS 000000.00
+
+sell4.inp
+    login
+    sellStandard
+    sell
+    Red Velvet Tour: Toronto
+    90
+    4
+    logout
+
+***********
+SELL5     *
+***********
+sell5.bto
+    Welcome to DKM's Ticket System
+    Please enter the login command to login
+    Enter username:
+    Login successful!
+    Choose a transaction to perform (logout, create, delete, sell, buy, refund, addcredit):
+    User not allowed to perform sell transaction.
+    Choose a transaction to perform (logout, create, delete, sell, buy, refund, addcredit):
+    Logout successful!
+
+sell5.eatf
+    END                                                 
+
+sell5.etf
+    00 buyStandard     BS 000000.00
+
+sell5.inp
+    login
+    buyStandard
+    sell
+    logout
+
+***********
+SELL6     *
+***********
+sell6.bto
+    Welcome to DKM's Ticket System
+    Please enter the login command to login
+    Enter username:
+    Login successful!
+    Choose a transaction to perform (logout, create, delete, sell, buy, refund, addcredit):
+    Enter the event title:
+    Enter the sale price for the tickets in dollars: 
+    How many tickets would you like to sell? (max 100):
+    Tickets successfully posted on sale!
+    Choose a transaction to perform (logout, create, delete, sell, buy, refund, addcredit):
+    Logout successful!
+
+sell6.eatf
+    Red_Velvet_Tour:_Toronto  adminUser       004 999.99
+    END                                                 
+
+sell6.etf
+    03 Red_Velvet_Tour:_Toronto adminUser       004 999.99
+    00 adminUser       AA 000000.00
+
+sell6.inp
+    login
+    adminUser
+    sell
+    Red Velvet Tour: Toronto
+    999.99
+    4
+    logout
+
+***********
+SELL7     *
+***********
+sell7.bto
+    Welcome to DKM's Ticket System
+    Please enter the login command to login
+    Enter username:
+    Login successful!
+    Choose a transaction to perform (logout, create, delete, sell, buy, refund, addcredit):
+    Enter the event title:
+    Enter the sale price for the tickets in dollars: 
+    How many tickets would you like to sell? (max 100):
+    Tickets successfully posted on sale!
+    Choose a transaction to perform (logout, create, delete, sell, buy, refund, addcredit):
+    Logout successful!
+
+sell7.eatf
+    Red_Velvet_Tour:_Toronto  adminUser       004 090.00
+    END                                                 
+
+sell7.etf
+    03 Red_Velvet_Tour:_Toronto adminUser       004 090.00
+    00 adminUser       AA 000000.00
+
+sell7.inp
+    login
+    adminUser
+    sell
+    Red Velvet Tour: Toronto
+    90
+    4
+    logout
+
+***********
+SELL8     *
+***********
+sell8.bto
+    Welcome to DKM's Ticket System
+    Please enter the login command to login
+    Enter username:
+    Login successful!
+    Choose a transaction to perform (logout, create, delete, sell, buy, refund, addcredit):
+    Enter the event title (max chars is 25):
+    Enter the sale price for the tickets in dollars (max amount is 999.99): 
+    How many tickets would you like to sell? (max 100):
+    Unable to perform sell transaction due to the following:
+    * The sale price for the tickets was incorrect (max price = 999.99)
+    Choose a transaction to perform (logout, create, delete, sell, buy, refund, addcredit):
+    Logout successful!
+
+sell8.eatf
+    END                                                 
+
+sell8.etf
+    00 adminUser       AA 000000.00
+
+sell8.inp
+    login
+    adminUser
+    sell
+    Red Velvet Tour: Toronto
+    1001.00
+    4
+    logout
+
+***********
+SELL9     *
+***********
+sell9.bto
+    Welcome to DKM's Ticket System
+    Please enter the login command to login
+    Enter username:
+    Login successful!
+    Choose a transaction to perform (logout, create, delete, sell, buy, refund, addcredit):
+    Enter the event title (max chars is 25):
+    Enter the sale price for the tickets in dollars (max amount is 999.99): 
+    How many tickets would you like to sell? (max 100):
+    Tickets successfully posted on sale!
+    Choose a transaction to perform (logout, create, delete, sell, buy, refund, addcredit):
+    Logout successful!
+
+sell9.eatf
+    Red_Velvet_Tour_-_Toronto adminUser       004 360.00
+    END                                                 
+
+sell9.etf
+    03 Red_Velvet_Tour_-_Toronto adminUser       004 360.00
+    00 adminUser       AA 000000.00
+
+sell9.inp
+    login
+    adminUser
+    sell
+    Red Velvet Tour - Toronto
+    360.00
+    4
+    logout
+
+***********
+SELL10    *
+***********
+sell10.bto
+    Welcome to DKM's Ticket System
+    Please enter the login command to login
+    Enter username:
+    Login successful!
+    Choose a transaction to perform (logout, create, delete, sell, buy, refund, addcredit):
+    Enter the event title (max chars is 25):
+    Enter the sale price for the tickets in dollars (max amount is 999.99): 
+    How many tickets would you like to sell? (max 100):
+    Tickets successfully posted on sale!
+    Choose a transaction to perform (logout, create, delete, sell, buy, refund, addcredit):
+    Logout successful!
+
+sell10.eatf
+    Red_Velvet_Tour:_Toronto  adminUser       004 090.00
+    END                                                 
+
+sell10.etf
+    03 Red_Velvet_Tour:_Toronto adminUser       004 360.00
+    00 adminUser       AA 000000.00
+
+sell10.inp
+    login
+    adminUser
+    sell
+    Red Velvet Tour: Toronto
+    360.00
+    4
+    logout
+
+***********
+SELL11    *
+***********
+sell11.bto
+    Welcome to DKM's Ticket System
+    Please enter the login command to login
+    Enter username:
+    Login successful!
+    Choose a transaction to perform (logout, create, delete, sell, buy, refund, addcredit):
+    Enter the event title (max chars is 25):
+    Enter the sale price for the tickets in dollars (max amount is 999.99): 
+    How many tickets would you like to sell? (max 100):
+    Unable to perform sell transaction due to the following:
+    * The event title is longer than 25 characters
+    Choose a transaction to perform (logout, create, delete, sell, buy, refund, addcredit):
+    Logout successful!
+    
+sell11.eatf
+    END                                          
+
+sell11.etf
+    00 adminUser       AA 000000.00
+    
+sell11.inp
+    login
+    adminUser
+    sell
+    Red Velvet Tour: Toronto 2019
+    360.00
+    4
+    logout
+
+***********
+SELL12    *
+***********
+sell12.bto
+    Welcome to DKM's Ticket System
+    Please enter the login command to login
+    Enter username:
+    Login successful!
+    Choose a transaction to perform (logout, create, delete, sell, buy, refund, addcredit):
+    Enter the event title (max chars is 25):
+    Enter the sale price for the tickets in dollars (max amount is 999.99): 
+    How many tickets would you like to sell? (max 100):
+    Tickets successfully posted on sale!
+    Choose a transaction to perform (logout, create, delete, sell, buy, refund, addcredit):
+    Logout successful!
+
+sell12.eatf
+    Red_Velvet_Tour:_Toronto  adminUser       100 360.00
+    END                                                 
+
+sell12.etf
+    03 Red_Velvet_Tour:_Toronto adminUser       100 360.00
+    00 adminUser       AA 000000.00
+
+sell12.inp
+    login
+    adminUser
+    sell
+    Red Velvet Tour: Toronto
+    360.00
+    100
+    logout
+
+***********
+SELL13    *
+***********
+sell13.bto
+    Welcome to DKM's Ticket System
+    Please enter the login command to login
+    Enter username:
+    Login successful!
+    Choose a transaction to perform (logout, create, delete, sell, buy, refund, addcredit):
+    Enter the event title (max chars is 25):
+    Enter the sale price for the tickets in dollars (max amount is 999.99): 
+    How many tickets would you like to sell? (max 100):
+    Tickets successfully posted on sale!
+    Choose a transaction to perform (logout, create, delete, sell, buy, refund, addcredit):
+    Logout successful!
+
+sell13.eatf
+     Red_Velvet_Tour:_Toronto  adminUser       004 360.00
+    END                                                  
+
+sell13.etf
+    03 Red_Velvet_Tour:_Toronto adminUser       004 360.00
+    00 adminUser       AA 000000.00
+
+sell13.inp
+   login
+    adminUser
+    sell
+    Red Velvet Tour: Toronto
+    360.00
+    4
+    logout 
+
+***********
+SELL14    *
+***********
+sell14.bto
+    Welcome to DKM's Ticket System
+    Please enter the login command to login
+    Enter username:
+    Login successful!
+    Choose a transaction to perform (logout, create, delete, sell, buy, refund, addcredit):
+    Enter the event title (max chars is 25):
+    Enter the sale price for the tickets in dollars (max amount is 999.99): 
+    How many tickets would you like to sell? (max 100):
+    Unable to perform sell transaction due to the following:
+    * The number of tickets to be sold is more than 100
+    Choose a transaction to perform (logout, create, delete, sell, buy, refund, addcredit):
+    Logout successful!
+
+sell14.eatf
+    END                                                    
+
+sell14.etf
+    00 adminUser       AA 000000.00
+
+sell14.inp
+    login
+    adminUser
+    sell
+    Red Velvet Tour: Toronto
+    360.00
+    500
+    logout
+
+***********
+SELL15    *
+***********
+sell15.bto
+    Welcome to DKM's Ticket System
+    Please enter the login command to login
+    Enter username:
+    Login successful!
+    Choose a transaction to perform (logout, create, delete, sell, buy, refund, addcredit):
+    Enter the event title (max chars is 25):
+    Enter the sale price for the tickets in dollars (max amount is 999.99): 
+    How many tickets would you like to sell? (max 100):
+    Unable to perform sell transaction due to the following:
+    * Incorrect input type for number of tickets to sell
+    Choose a transaction to perform (logout, create, delete, sell, buy, refund, addcredit):
+    Logout successful!
+
+sell15.eatf
+    END                                                    
+
+sell15.etf
+    00 adminUser       AA 000000.00
+
+sell15.inp
+    login
+    adminUser
+    sell
+    Red Velvet Tour: Toronto
+    360.00
+    sell
+    logout
